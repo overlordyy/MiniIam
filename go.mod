@@ -1,3 +1,3 @@
-module example.com/m/v2
+module github.com/overlordyy/MiniIam
 
 go 1.20
