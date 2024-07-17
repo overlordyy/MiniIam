@@ -2,9 +2,11 @@ package account
 
 import (
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"github.com/overlordyy/MiniIam/internal/app/account/config"
 	"github.com/overlordyy/MiniIam/internal/app/account/db"
 	"github.com/overlordyy/MiniIam/internal/app/account/redis"
+	"github.com/overlordyy/MiniIam/internal/app/account/server"
 )
 
 func Run() {
@@ -22,4 +24,10 @@ func Run() {
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	g := gin.Default()
+	accountGrouop := g.Group("/api/miniiam/account")
+	accountGrouop.Any("/saveAccount", server.SaveAccount)
+
+	g.Run(":8880")
 }
