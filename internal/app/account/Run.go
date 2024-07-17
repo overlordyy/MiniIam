@@ -27,7 +27,10 @@ func Run() {
 
 	g := gin.Default()
 	accountGrouop := g.Group("/api/miniiam/account")
-	accountGrouop.Any("/saveAccount", server.SaveAccount)
+	accountGrouop.POST("/saveAccount", server.SaveAccount)
+	accountGrouop.POST("/findAccount", server.FindAccount)
+	accountGrouop.POST("/delAccount", server.DelAccount)
+	accountGrouop.POST("/updateAccount", server.UpdateAccount)
 
 	g.Run(":8880")
 }
