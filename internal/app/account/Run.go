@@ -32,5 +32,10 @@ func Run() {
 	accountGrouop.POST("/delAccount", server.DelAccount)
 	accountGrouop.POST("/updateAccount", server.UpdateAccount)
 
+	accountGroupGrouop := g.Group("/api/miniiam/accountGroup")
+	accountGroupGrouop.POST("/saveAccountGroup", server.SaveAccountGroup)
+	accountGroupGrouop.POST("/findAccountGroup", server.FindAccountGroup)
+	accountGroupGrouop.POST("/delAccountGroup", server.DelAccountGroup)
+	accountGroupGrouop.POST("/updateAccountGroup", server.UpdateAccountGroup)
 	g.Run(":8880")
 }
