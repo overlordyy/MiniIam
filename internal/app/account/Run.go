@@ -26,6 +26,7 @@ func Run() {
 	}
 
 	g := gin.Default()
+
 	accountGrouop := g.Group("/api/miniiam/account")
 	accountGrouop.Any("/saveAccount", server.SaveAccount)
 	accountGrouop.GET("/findAccount", server.FindAccount)
